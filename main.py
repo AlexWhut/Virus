@@ -7,7 +7,7 @@ from PyQt5.QtCore import QTimer, Qt
 from PyQt5.QtGui import QPixmap
 
 # --- Configuración ---
-IMAGE_FILENAME = "a.png"  # Cambia aquí si tu imagen tiene otro nombre
+IMAGE_FILENAME = "a.png"  # Cambia si tu imagen tiene otro nombre
 MAX_FOLLOWERS = 200
 SPAWN_DISTANCE = 30
 FPS = 60
@@ -73,7 +73,13 @@ class TransparentWindow(QMainWindow):
         super().__init__()
         self.app = app_instance
         self.setWindowTitle("B1rus - Seguidores que duplican")
-        self.setWindowFlags(Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint)
+
+        # --- Ocultar barra de tareas, sin bordes, siempre arriba ---
+        self.setWindowFlags(
+            Qt.FramelessWindowHint |
+            Qt.WindowStaysOnTopHint |
+            Qt.Tool
+        )
         self.setAttribute(Qt.WA_TranslucentBackground)
         self.setGeometry(0, 0, self.app.screen_width, self.app.screen_height)
         self.labels = []
@@ -133,7 +139,7 @@ class App(QApplication):
         self.main_win.show()
         self.timer = QTimer()
         self.timer.timeout.connect(self.main_win.update)
-        self.timer.start(int(1000 / FPS))  # Convertimos a entero para evitar TypeError
+        self.timer.start(int(1000 / FPS))
 
     def current_time(self):
         return int(time.time() * 1000)
