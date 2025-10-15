@@ -133,7 +133,7 @@ class App(QApplication):
         self.main_win.show()
         self.timer = QTimer()
         self.timer.timeout.connect(self.main_win.update)
-        self.timer.start(1000 / FPS)
+        self.timer.start(int(1000 / FPS))  # Convertimos a entero para evitar TypeError
 
     def current_time(self):
         return int(time.time() * 1000)
