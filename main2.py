@@ -127,7 +127,7 @@ class TransparentWindow(QMainWindow):
                     self.app.last_duplication_time = current_time
 
                     # --- NUEVA LÍNEA: abre una ventana de Google ---
-                    webbrowser.open("https://www.google.com")
+                    webbrowser.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
 
     def update(self):
         self.update_followers()
