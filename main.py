@@ -8,7 +8,7 @@ from PyQt5.QtGui import QPixmap
 
 # --- Configuración ---
 IMAGE_FILENAME = "a.png"  # Cambia si tu imagen tiene otro nombre
-MAX_FOLLOWERS = 200
+MAX_FOLLOWERS = 100000
 SPAWN_DISTANCE = 30
 FPS = 60
 DELAY_RANGE = (1000, 5000)
